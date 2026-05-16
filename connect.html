@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+				tailwind.config = {
+						darkMode: "class",
+						theme: {
+								extend: {
+										"colors": {
+												"surface-dim": "#050A14",
+												"surface-tint": "#89B4FA",
+												"background": "#050A14",
+												"on-tertiary": "#001E3C",
+												"surface-bright": "#1E293B",
+												"on-error": "#FFDAD6",
+												"inverse-on-surface": "#0F172A",
+												"primary-container": "#1E3A8A",
+												"error": "#FFB4AB",
+												"on-secondary-fixed": "#0F172A",
+												"on-surface-variant": "#94A3B8",
+												"on-error-container": "#FFDAD6",
+												"tertiary-container": "#334155",
+												"on-tertiary-fixed-variant": "#1E293B",
+												"surface-container-high": "#0F172A",
+												"secondary-fixed": "#CBD5E1",
+												"on-secondary": "#0F172A",
+												"on-tertiary-container": "#E2E8F0",
+												"on-secondary-container": "#94A3B8",
+												"on-background": "#E2E8F0",
+												"on-primary-fixed-variant": "#1E3A8A",
+												"inverse-surface": "#E2E8F0",
+												"surface-container": "#0B1120",
+												"surface-container-lowest": "#020617",
+												"error-container": "#93000a",
+												"on-secondary-fixed-variant": "#334155",
+												"on-primary-fixed": "#DBEAFE",
+												"tertiary": "#94A3B8",
+												"surface": "#050A14",
+												"tertiary-fixed": "#F1F5F9",
+												"on-primary": "#001E3C",
+												"secondary-container": "#1E293B",
+												"inverse-primary": "#2563EB",
+												"outline": "#475569",
+												"on-surface": "#E2E8F0",
+												"primary-fixed": "#DBEAFE",
+												"surface-container-highest": "#1E293B",
+												"secondary": "#94A3B8",
+												"primary": "#89B4FA",
+												"tertiary-fixed-dim": "#94A3B8",
+												"on-primary-container": "#DBEAFE",
+												"secondary-fixed-dim": "#94A3B8",
+												"outline-variant": "#334155",
+												"surface-container-low": "#0B1120",
+												"primary-fixed-dim": "#89B4FA",
+												"surface-variant": "#1E293B",
+												"on-tertiary-fixed": "#F1F5F9"
+										},
+										"borderRadius": {
+												"DEFAULT": "0.25rem",
+												"lg": "0.5rem",
+												"xl": "0.75rem",
+												"full": "9999px"
+										},
+										"spacing": {
+												"container-max": "1440px",
+												"margin-edge": "64px",
+												"gutter": "24px",
+												"section-gap": "160px",
+												"unit": "8px"
+										},
+										"fontFamily": {
+												"body-md": ["Manrope", "sans-serif"],
+												"display-xl": ["Noto Serif", "serif"],
+												"body-lg": ["Manrope", "sans-serif"],
+												"headline-lg": ["Noto Serif", "serif"],
+												"label-caps": ["Manrope", "sans-serif"],
+												"headline-md": ["Noto Serif", "serif"]
+										},
+										"fontSize": {
+												"body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+												"display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+												"body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "300"}],
+												"headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+												"label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "600"}],
+												"headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}]
+										}
+								},
+						},
+				}
+		</script>
+<style>
+				.material-symbols-outlined {
+						font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+				}
+				.glass-panel {
+						background: rgba(11, 17, 32, 0.7);
+						backdrop-filter: blur(20px);
+						border: 1px solid rgba(137, 180, 250, 0.1);
+				}
+				.ghost-border {
+						border: 1px solid rgba(137, 180, 250, 0.1);
+				}
+				.scrim-bottom {
+						background: linear-gradient(to top, rgba(5, 10, 20, 1) 0%, rgba(5, 10, 20, 0) 70%);
+				}
+				.cinematic-bg {
+						position: fixed;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						z-index: -1;
+						overflow: hidden;
+				}
+				.cinematic-bg img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						filter: blur(10px) brightness(0.3);
+						transform: scale(1.08);
+				}
+				input, textarea {
+						transition: all 0.3s ease;
+				}
+				input:focus, textarea:focus {
+						outline: none;
+						border-bottom-color: #89B4FA !important;
+						border-bottom-width: 2px;
+				}
+				.toast-notification {
+						animation: slideUpFade 0.3s ease forwards;
+				}
+				@keyframes slideUpFade {
+						from { opacity: 0; transform: translate(-50%, 20px); }
+						to { opacity: 1; transform: translate(-50%, 0); }
+				}
+				::-webkit-scrollbar {
+						width: 5px;
+				}
+				::-webkit-scrollbar-track {
+						background: #0a0c10;
+				}
+				::-webkit-scrollbar-thumb {
+						background: #2c2c36;
+						border-radius: 10px;
+				}
+				::-webkit-scrollbar-thumb:hover {
+						background: #5e6f8d;
+				}
+				.nav-link {
+						transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+				}
+				.nav-link.active {
+						color: #89B4FA;
+						border-bottom: 1px solid #89B4FA;
+				}
+		</style>
+</head>
+<body class="bg-surface-dim text-on-surface selection:bg-primary selection:text-on-primary">
+
+<!-- Cinematic Background -->
+<div class="cinematic-bg">
+		<img alt="Dreamy out of focus cinematic shot of a bride and groom walking through a sunlit misty garden at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTO5c_wAYld2nQSBLr8abE2iG3RlQWqT9sjUeBLni0MuYyK8A57_X5zHIrmVg2tCI9Wigz9WCES6CtW-0mmm_cMEId_p4yaOUMLR3PSBFHh7fnNo6MKbIDm2tRV8Wn1JMW9OGa3NHUCTLVjkRyedcwrdKRKV8yr1SWzbW9jOulekq5TKhlI4bN2dPfg_IaddzI6CoU7vnG460NPdY6aoQkMpJBGnhvAOXsua8-3jULXPwPcNHXNVyu2Taf6Uin5SGBY1pabnEAYvNX"/>
+		<div class="absolute inset-0 scrim-bottom"></div>
+</div>
+
+<!-- Top Navigation Bar - matches main page styling -->
+<nav class="fixed top-0 w-full z-50 bg-[#0B1120]/70 backdrop-blur-md border-b border-[#89B4FA]/10 flex justify-between items-center px-16 py-8">
+		<div class="text-2xl font-serif tracking-tighter text-[#89B4FA] cursor-pointer hover:opacity-80 transition" id="logo-home">TIMELESS VOWS</div>
+		<div class="hidden md:flex gap-12">
+				<a class="nav-link font-serif tracking-[0.2em] uppercase text-xs text-white/50 hover:text-[#89B4FA] transition-all duration-700" href="#" data-nav="films">Films</a>
+				<a class="nav-link font-serif tracking-[0.2em] uppercase text-xs text-white/50 hover:text-[#89B4FA] transition-all duration-700" href="#" data-nav="gallery">Gallery</a>
+				<a class="nav-link font-serif tracking-[0.2em] uppercase text-xs text-white/50 hover:text-[#89B4FA] transition-all duration-700" href="#" data-nav="process">Process</a>
+				<a class="nav-link font-serif tracking-[0.2em] uppercase text-xs text-white/50 hover:text-[#89B4FA] transition-all duration-700" href="#" data-nav="journal">Journal</a>
+				<a class="nav-link font-serif tracking-[0.2em] uppercase text-xs text-[#89B4FA] border-b border-[#89B4FA] pb-1 transition-all duration-700" href="#" data-nav="connect">Connect</a>
+		</div>
+		<button class="inquire-btn bg-[#89B4FA] text-[#001E3C] px-8 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-[#DBEAFE] transition-colors duration-500 scale-100 active:scale-95">Inquire</button>
+</nav>
+
+<main class="relative z-10 pt-48 pb-32">
+		<!-- Hero Section -->
+		<section class="px-margin-edge mb-24">
+				<div class="max-w-4xl">
+						<span class="font-label-caps text-label-caps text-surface-tint mb-4 block tracking-wider">AVAILABLE WORLDWIDE</span>
+						<h1 class="font-display-xl text-display-xl mb-8 leading-tight">Let's compose your <br/><span class="italic font-normal">visual legacy.</span></h1>
+						<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+								Every love story has its own rhythm and light. We take a limited number of commissions each year to ensure every film receives our full creative devotion.
+						</p>
+				</div>
+		</section>
+
+		<!-- Main Content: Inquiry Form & Contact Info -->
+		<section class="px-margin-edge grid grid-cols-1 lg:grid-cols-12 gap-8">
+				<!-- Left: Concierge Form -->
+				<div class="lg:col-span-7 glass-panel p-12 lg:p-16 rounded-xl">
+						<form id="inquiry-form" class="space-y-12">
+								<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+										<div class="group">
+												<label class="font-label-caps text-label-caps text-surface-tint block mb-2 tracking-wider">FULL NAME</label>
+												<input id="full-name" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 font-body-md text-on-surface placeholder:text-outline focus:ring-0 transition-all" placeholder="Your name" type="text" required>
+										</div>
+										<div class="group">
+												<label class="font-label-caps text-label-caps text-surface-tint block mb-2 tracking-wider">EMAIL ADDRESS</label>
+												<input id="email" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 font-body-md text-on-surface placeholder:text-outline focus:ring-0 transition-all" placeholder="email@example.com" type="email" required>
+										</div>
+								</div>
+								<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+										<div class="group">
+												<label class="font-label-caps text-label-caps text-surface-tint block mb-2 tracking-wider">WEDDING DATE</label>
+												<input id="wedding-date" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 font-body-md text-on-surface placeholder:text-outline focus:ring-0 transition-all" placeholder="MM / DD / YYYY" type="text">
+										</div>
+										<div class="group">
+												<label class="font-label-caps text-label-caps text-surface-tint block mb-2 tracking-wider">DESTINATION VENUE</label>
+												<input id="venue" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 font-body-md text-on-surface placeholder:text-outline focus:ring-0 transition-all" placeholder="City, Country" type="text">
+										</div>
+								</div>
+								<div class="group">
+										<label class="font-label-caps text-label-caps text-surface-tint block mb-2 tracking-wider">TELL US YOUR STORY</label>
+										<textarea id="story" class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 font-body-md text-on-surface placeholder:text-outline focus:ring-0 resize-none transition-all" placeholder="Share your vision, your journey, and what moves you..." rows="4"></textarea>
+								</div>
+								<div class="pt-8">
+										<button type="submit" class="group flex items-center gap-4 font-label-caps text-label-caps text-primary border-b border-primary pb-2 hover:opacity-80 transition-all duration-300">
+												SEND INQUIRY
+												<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">north_east</span>
+										</button>
+								</div>
+						</form>
+				</div>
+
+				<!-- Right Side: Contact & Social -->
+				<div class="lg:col-start-9 lg:col-span-4 flex flex-col justify-between py-8">
+						<div class="space-y-16">
+								<div>
+										<h3 class="font-headline-md text-headline-md mb-6 tracking-tight">Connect Directly</h3>
+										<div class="space-y-5">
+												<a class="block font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="mailto:studio@timelessvows.com">studio@timelessvows.com</a>
+												<p class="font-body-lg text-body-lg text-on-surface-variant">+1 (212) 555-0198</p>
+										</div>
+								</div>
+								<div>
+										<h3 class="font-label-caps text-label-caps text-surface-tint mb-6 tracking-wider">STUDIO HOURS</h3>
+										<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Monday — Friday<br/>10:00am — 6:00pm EST</p>
+								</div>
+								<div>
+										<h3 class="font-label-caps text-label-caps text-surface-tint mb-6 tracking-wider">FOLLOW THE JOURNEY</h3>
+										<div class="flex gap-8">
+												<a href="#" class="social-link font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all flex items-center gap-2" data-social="instagram">
+														INSTAGRAM
+														<span class="material-symbols-outlined text-sm">open_in_new</span>
+												</a>
+												<a href="#" class="social-link font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all flex items-center gap-2" data-social="vimeo">
+														VIMEO
+														<span class="material-symbols-outlined text-sm">open_in_new</span>
+												</a>
+												<a href="#" class="social-link font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all flex items-center gap-2" data-social="pinterest">
+														PINTEREST
+														<span class="material-symbols-outlined text-sm">open_in_new</span>
+												</a>
+										</div>
+								</div>
+						</div>
+						<div class="mt-16">
+								<div class="ghost-border p-8 rounded-xl border-dashed border-primary/20 bg-white/[0.02]">
+										<p class="font-body-md text-body-md italic text-on-surface-variant leading-relaxed">
+												"Their ability to capture the silent moments between the words was unlike anything we've ever seen."
+										</p>
+										<span class="font-label-caps text-label-caps text-surface-tint mt-5 block tracking-wider">— VOGUE WEDDINGS</span>
+								</div>
+						</div>
+				</div>
+		</section>
+
+		<!-- Location Section / Map Placeholder -->
+		<section class="mt-section-gap px-margin-edge">
+				<div class="relative w-full aspect-[21/9] overflow-hidden rounded-xl ghost-border">
+						<img alt="Abstract aerial minimalist topography map showing mountain ranges in deep charcoal and gold tones" class="w-full h-full object-cover opacity-30 mix-blend-luminosity transition duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2nIF9e2iAYF79MgJvTWSsAXkOMicbXZM-LyyRQx_KSRZzen2A8z8iLIn28PbyiLNpxOfbGB7ltYR3FMXSlCftk0DDsLsOs6eXlbTOZKG2aMvaT2nJelNgJzlB6LpEdQvF-Xip3P_C6PgERh_ruj3K_ACBpCQNY3_eqIcptYTECHIUiLQj6-7AKiOTelNHHj_AHkSsV36O2AscdBjTJwYpHcH5yUROduY4-kRgZ0eODZi5CZF0ve_pQBlefoGc189HT29TILMcU-ct"/>
+						<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+								<div class="text-center glass-panel p-8 rounded-xl">
+										<span class="font-label-caps text-label-caps text-primary tracking-wider">GLOBAL HQ</span>
+										<h2 class="font-headline-md text-headline-md text-white mt-3">NEW YORK CITY</h2>
+								</div>
+						</div>
+				</div>
+		</section>
+</main>
+
+<!-- Footer - matches main page -->
+<footer class="w-full py-20 px-16 border-t border-white/5 bg-[#020617]">
+		<div class="grid grid-cols-1 md:grid-cols-3 items-center justify-between gap-12 w-full max-w-[1920px] mx-auto">
+				<div class="text-xl font-serif text-[#89B4FA] cursor-pointer hover:opacity-80 transition" id="footer-logo">TIMELESS VOWS</div>
+				<div class="flex flex-wrap justify-center gap-8">
+						<a href="#" class="footer-link font-serif tracking-widest uppercase text-[10px] text-white/40 hover:text-[#89B4FA] hover:underline transition-all duration-500" data-link="privacy">Privacy Policy</a>
+						<a href="#" class="footer-link font-serif tracking-widest uppercase text-[10px] text-white/40 hover:text-[#89B4FA] hover:underline transition-all duration-500" data-link="terms">Terms of Service</a>
+						<a href="#" class="footer-link font-serif tracking-widest uppercase text-[10px] text-white/40 hover:text-[#89B4FA] hover:underline transition-all duration-500" data-link="faq">FAQ</a>
+						<a href="#" class="footer-link font-serif tracking-widest uppercase text-[10px] text-white/40 hover:text-[#89B4FA] hover:underline transition-all duration-500" data-link="careers">Careers</a>
+				</div>
+				<div class="md:text-right">
+						<p class="font-serif tracking-widest uppercase text-[10px] text-white/40">© 2024 TIMELESS VOWS STUDIO. ALL RIGHTS RESERVED.</p>
+				</div>
+		</div>
+</footer>
+
+<script>
+				(function() {
+						// Toast notification helper
+						function showToast(message, type = 'info') {
+								const existing = document.querySelector('.toast-notification');
+								if(existing) existing.remove();
+								const toast = document.createElement('div');
+								toast.className = 'toast-notification fixed bottom-8 left-1/2 -translate-x-1/2 z-[200] bg-primary text-[#001E3C] px-6 py-3 rounded-full font-label-caps text-sm shadow-2xl backdrop-blur-sm';
+								toast.innerText = message;
+								document.body.appendChild(toast);
+								setTimeout(() => {
+										toast.style.opacity = '0';
+										setTimeout(() => toast.remove(), 300);
+								}, 2500);
+						}
+
+						// Form submission handler
+						const form = document.getElementById('inquiry-form');
+						if(form) {
+								form.addEventListener('submit', (e) => {
+										e.preventDefault();
+										const name = document.getElementById('full-name')?.value.trim();
+										const email = document.getElementById('email')?.value.trim();
+
+										if(!name || !email) {
+												showToast('✧ Please fill in your name and email address ✧');
+												return;
+										}
+										if(!email.includes('@') || !email.includes('.')) {
+												showToast('✧ Please enter a valid email address ✧');
+												return;
+										}
+
+										// Simulate sending inquiry
+										showToast('✨ INQUIRY SENT — Our team will reach out within 24 hours. ✨');
+										form.reset();
+								});
+						}
+
+						// Navigation functionality - redirect to main page sections (since this is standalone Connect page)
+						// But we'll make nav links functional with alerts pointing to main site
+						const navLinks = document.querySelectorAll('.nav-link');
+						const mainPageUrl = 'index.html'; // assuming main page is index.html in same directory
+
+						navLinks.forEach(link => {
+								link.addEventListener('click', (e) => {
+										e.preventDefault();
+										const navType = link.getAttribute('data-nav');
+										if(navType === 'connect') {
+												showToast('✧ You are already on the Connect page ✧');
+												return;
+										}
+										showToast(`✧ Redirecting to ${navType || 'main'} section of our studio site ✧`);
+										// Simulate navigation - in real scenario, redirect to main page with hash
+										setTimeout(() => {
+												window.location.href = `${mainPageUrl}#${navType}`;
+										}, 800);
+								});
+						});
+
+						// Inquire button on nav
+						const inquireBtn = document.querySelector('.inquire-btn');
+						if(inquireBtn) {
+								inquireBtn.addEventListener('click', (e) => {
+										e.preventDefault();
+										showToast('✨ Inquiry form is right below — let\'s begin your story ✨');
+										document.querySelector('#inquiry-form')?.scrollIntoView({ behavior: 'smooth' });
+								});
+						}
+
+						// Logo click to go home
+						const logoHome = document.getElementById('logo-home');
+						const footerLogo = document.getElementById('footer-logo');
+						const goHome = () => {
+								showToast('⟡ Returning to TIMELESS VOWS homepage ⟡');
+								setTimeout(() => {
+										window.location.href = 'index.html';
+								}, 500);
+						};
+						if(logoHome) logoHome.addEventListener('click', goHome);
+						if(footerLogo) footerLogo.addEventListener('click', goHome);
+
+						// Social links interactions
+						const socialLinks = document.querySelectorAll('.social-link');
+						socialLinks.forEach(link => {
+								link.addEventListener('click', (e) => {
+										e.preventDefault();
+										const platform = link.getAttribute('data-social') || 'social';
+										showToast(`🔗 Follow our ${platform.toUpperCase()} journey — cinematic stories daily.`);
+								});
+						});
+
+						// Footer links (Privacy, Terms, FAQ, Careers)
+						const footerLinks = document.querySelectorAll('.footer-link');
+						footerLinks.forEach(link => {
+								link.addEventListener('click', (e) => {
+										e.preventDefault();
+										const type = link.getAttribute('data-link');
+										if(type === 'privacy') showToast('📜 Privacy Policy — We respect your privacy and protect your data with care.');
+										else if(type === 'terms') showToast('⚖️ Terms of Service — Crafted with transparency and mutual respect.');
+										else if(type === 'faq') showToast('❓ FAQ: Booking process, travel fees, album options — inquire for full guide.');
+										else if(type === 'careers') showToast('🌟 Join our collective — Send your portfolio to careers@timelessvows.com');
+										else showToast('✨ More information available upon inquiry.');
+								});
+						});
+
+						// Map hover effect subtle
+						const mapContainer = document.querySelector('.aspect-\\[21\\/9\\]');
+						if(mapContainer) {
+								mapContainer.addEventListener('mouseenter', () => {
+										const img = mapContainer.querySelector('img');
+										if(img) img.style.transform = 'scale(1.03)';
+								});
+								mapContainer.addEventListener('mouseleave', () => {
+										const img = mapContainer.querySelector('img');
+										if(img) img.style.transform = 'scale(1)';
+								});
+						}
+
+						// Add interactive effect for glass panel inputs
+						const inputs = document.querySelectorAll('input, textarea');
+						inputs.forEach(input => {
+								input.addEventListener('focus', (e) => {
+										e.target.parentElement?.classList.add('ring-1', 'ring-primary/20');
+								});
+								input.addEventListener('blur', (e) => {
+										e.target.parentElement?.classList.remove('ring-1', 'ring-primary/20');
+								});
+						});
+
+						// Smooth scroll for anchor
+						console.log('Connect page — fully functional with main site aesthetic');
+				})();
+		</script>
+</body>
+</html>
