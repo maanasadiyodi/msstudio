@@ -772,7 +772,6 @@
                 }
             }
 
-            /* FIXED: Cross button perfect alignment, well-placed and indented */
             .lightbox-close {
                 position: absolute;
                 top: 24px;
@@ -995,61 +994,6 @@
                 gap: 12px;
             }
 
-            .enquiry-modal {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.96);
-                z-index: 900;
-                justify-content: center;
-                align-items: center;
-                backdrop-filter: blur(12px);
-                padding: 20px;
-            }
-
-            .enquiry-modal.active {
-                display: flex;
-                animation: enquiryFadeIn 0.3s
-                    cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            }
-
-            .enquiry-modal-content {
-                background: rgba(11, 17, 32, 0.85);
-                backdrop-filter: blur(20px);
-                border: 1px solid rgba(218, 165, 32, 0.2);
-                border-radius: 1.5rem;
-                padding: 2rem;
-                max-width: 600px;
-                width: 100%;
-                max-height: 90vh;
-                overflow-y: auto;
-                position: relative;
-            }
-
-            .enquiry-modal-close {
-                position: absolute;
-                top: 16px;
-                right: 16px;
-                background: rgba(218, 165, 32, 0.1);
-                border: 1px solid rgba(218, 165, 32, 0.3);
-                color: #d4a017;
-                width: 36px;
-                height: 36px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                font-size: 1.5rem;
-                font-weight: 300;
-                padding: 0;
-                line-height: 1;
-            }
-
             .reveal-on-scroll {
                 opacity: 0;
                 transform: translateY(30px);
@@ -1132,7 +1076,7 @@
                         <div class="service-card stagger-item" data-service="Model Photoshoots"><span class="text-3xl font-light text-gold/50 block mb-4 animate-float">03</span><h3 class="font-display text-xl mb-3">Model Photoshoots</h3><p class="text-white/50 text-sm">Professional portfolio development and fashion editorials.</p></div>
                         <div class="service-card stagger-item" data-service="Small Programs & Events"><span class="text-3xl font-light text-gold/50 block mb-4 animate-float">04</span><h3 class="font-display text-xl mb-3">Small Programs & Events</h3><p class="text-white/50 text-sm">Corporate events and intimate gatherings captured with discretion.</p></div>
                         <div class="service-card stagger-item" data-service="Custom Photo Framing"><span class="text-3xl font-light text-gold/50 block mb-4 animate-float">05</span><h3 class="font-display text-xl mb-3">Custom Photo Framing</h3><p class="text-white/50 text-sm">Premium archival framing with museum-grade materials.</p></div>
-                        <div class="service-card stagger-item" data-service="Creative Direction"><span class="text-3xl font-light text-gold/50 block mb-4 animate-float">06</span><h3 class="font-display text-xl mb-3">Creative Direction</h3><p class="text-white/50 text-sm">Concept development and art direction with precision.</p></div>
+                        <div class="service-card stagger-item" data-service="Poster Design"><span class="text-3xl font-light text-gold/50 block mb-4 animate-float">06</span><h3 class="font-display text-xl mb-3">Creative Direction</h3><p class="text-white/50 text-sm">Design your moments</p></div>
                     </div>
                 </div>
             </section>
@@ -1147,7 +1091,7 @@
                     <div class="team-grid">
                         <div class="team-card reveal-on-scroll"><div class="team-image-wrapper"><img src="asset/team1.jpg" alt="Alan Sabu" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/1a1a1a/d4a017?text=Alan+Sabu'"/></div><div class="team-info"><div><h3 class="team-name">Alan Sabu</h3><p class="team-role">ceo / Lead Photographer</p><p class="team-bio">Specializing in photography with an eye for authentic storytelling and emotional depth in every frame.</p></div></div></div>
                         <div class="team-card reveal-on-scroll"><div class="team-image-wrapper"><img src="asset/team2.jpeg" alt="Rishi A" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/1a1a1a/d4a017?text=Rishi+A'"/></div><div class="team-info"><div><h3 class="team-name">Rishi A</h3><p class="team-role">co - founder / video editor</p><p class="team-bio">Visionary director with expertise in concept development, art direction, and bringing imaginative ideas to life through visual excellence.</p></div></div></div>
-                        <div class="team-card reveal-on-scroll"><div class="team-image-wrapper"><img src="asset/team3.jpeg" alt="Karthik A Nair" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/1a1a1a/d4a017?text=Karthik'"/></div><div class="team-info"><div><h3 class="team-name">Karthik</h3><p class="team-role">co - founder / marketing</p><p class="team-bio">Expert in capturing intimate moments and large-scale events with technical precision and artistic finesse for unforgettable memories.</p></div></div></div>
+                        <div class="team-card reveal-on-scroll"><div class="team-image-wrapper"><img src="asset/team3.jpeg" alt="Karthik A Nair" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/1a1a1a/d4a017?text=Karthik'"/></div><div class="team-info"><div><h3 class="team-name">Karthik A Nair</h3><p class="team-role">co - founder / marketing</p><p class="team-bio">Expert in capturing intimate moments and large-scale events with technical precision and artistic finesse for unforgettable memories.</p></div></div></div>
                     </div>
                 </div>
             </section>
@@ -1178,25 +1122,60 @@
             </div>
         </div>
 
-        <div id="enquiryModal" class="enquiry-modal" role="dialog" aria-label="Service enquiry form">
-            <div class="enquiry-modal-content"><button class="enquiry-modal-close">×</button><h2 class="enquiry-title" id="enquiryServiceName">Service Enquiry</h2><p class="enquiry-subtitle">Send us your details</p><form id="enquiryForm"><div class="form-group"><label for="enquiryName">Full Name</label><input type="text" id="enquiryName" name="name" required placeholder="Your full name" /></div><div class="form-group"><label for="enquiryEmail">Email Address</label><input type="email" id="enquiryEmail" name="email" required placeholder="your.email@example.com" /></div><div class="form-group"><label for="enquiryPhone">Phone Number</label><input type="tel" id="enquiryPhone" name="phone" placeholder="Your phone number" /></div><div class="form-group"><label for="enquiryService">Service Interested In</label><input type="text" id="enquiryService" name="service" readonly /></div><div class="form-group"><label for="enquiryMessage">Message</label><textarea id="enquiryMessage" name="message" placeholder="Tell us more about your requirements..."></textarea></div><button type="submit" class="submit-btn">Send Enquiry</button></form></div>
-        </div>
-
         <script>
-            const deferredInit = () => {
+            (function() {
                 const heroImg = document.getElementById("heroImage");
                 if (heroImg) { heroImg.complete ? heroImg.classList.add("loaded") : heroImg.addEventListener("load", () => heroImg.classList.add("loaded")); setTimeout(() => { if (!heroImg.classList.contains("loaded")) heroImg.classList.add("loaded"); }, 1400); }
 
                 let galleryImages = [], currentImageIndex = 0, isTransitioning = false;
-                const galleryGrid = document.getElementById("galleryGrid"), loadingEl = document.getElementById("galleryLoading"), lightbox = document.getElementById("lightbox"), lightboxImg = document.getElementById("lightboxImg"), lightboxClose = document.querySelector(".lightbox-close"), lightboxPrev = document.getElementById("lightboxPrev"), lightboxNext = document.getElementById("lightboxNext"), lightboxCounter = document.getElementById("lightboxCounter"), enquiryModal = document.getElementById("enquiryModal"), enquiryForm = document.getElementById("enquiryForm"), enquiryClose = document.querySelector(".enquiry-modal-close"), enquiryServiceNameEl = document.getElementById("enquiryServiceName"), enquiryServiceInput = document.getElementById("enquiryService");
+                const galleryGrid = document.getElementById("galleryGrid"), loadingEl = document.getElementById("galleryLoading"), lightbox = document.getElementById("lightbox"), lightboxImg = document.getElementById("lightboxImg"), lightboxClose = document.querySelector(".lightbox-close"), lightboxPrev = document.getElementById("lightboxPrev"), lightboxNext = document.getElementById("lightboxNext"), lightboxCounter = document.getElementById("lightboxCounter");
 
-                const openEnquiryModal = (serviceName) => { enquiryServiceNameEl.textContent = serviceName + " Enquiry"; enquiryServiceInput.value = serviceName; enquiryModal.classList.add("active"); enquiryModal.classList.remove("closing"); enquiryModal.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; };
-                const closeEnquiryModal = () => { enquiryModal.classList.add("closing"); setTimeout(() => { enquiryModal.classList.remove("active", "closing"); enquiryModal.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; enquiryForm.reset(); }, 300); };
-                enquiryClose?.addEventListener("click", closeEnquiryModal);
-                enquiryModal?.addEventListener("click", (e) => { if (e.target === enquiryModal) closeEnquiryModal(); });
-                enquiryForm?.addEventListener("submit", (e) => { e.preventDefault(); const fd = new FormData(enquiryForm); window.location.href = `mailto:memoryshadestudio@gmail.com?subject=Service Enquiry: ${fd.get("service")}&body=Name: ${fd.get("name")}%0AEmail: ${fd.get("email")}%0APhone: ${fd.get("phone")}%0AService: ${fd.get("service")}%0A%0AMessage:%0A${fd.get("message")}`; closeEnquiryModal(); });
+                // Page navigation functions
+                const homePage = document.getElementById("homePage"), connectPage = document.getElementById("connectPage"), navLinks = document.querySelectorAll(".nav-link");
+                
+                function showPage(p) {
+                    if (p === "home") {
+                        homePage.classList.remove("hidden-page", "hidden");
+                        homePage.classList.add("visible-page");
+                        connectPage.classList.add("hidden-page", "hidden");
+                        connectPage.classList.remove("visible-page");
+                    } else {
+                        homePage.classList.add("hidden-page", "hidden");
+                        homePage.classList.remove("visible-page");
+                        connectPage.classList.remove("hidden-page", "hidden");
+                        connectPage.classList.add("visible-page");
+                    }
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+                
+                function updateActive(activePage) {
+                    navLinks.forEach(link => {
+                        link.classList.remove("active-nav-link", "text-gold");
+                        link.classList.add("text-white/50");
+                        if (link.getAttribute("data-page") === activePage) link.classList.add("active-nav-link", "text-gold");
+                    });
+                    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+                    mobileNavLinks.forEach(link => {
+                        link.classList.remove("active");
+                        if (link.getAttribute("data-page") === activePage) link.classList.add("active");
+                    });
+                }
 
-                document.querySelectorAll(".service-card").forEach(card => { card.addEventListener("click", () => openEnquiryModal(card.getAttribute("data-service"))); card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openEnquiryModal(card.getAttribute("data-service")); } }); });
+                // Professional Services Cards - Redirect to Connect Page instead of opening modal
+                document.querySelectorAll(".service-card").forEach(card => {
+                    card.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        showPage("connect");
+                        updateActive("connect");
+                    });
+                    card.addEventListener("keydown", (e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            showPage("connect");
+                            updateActive("connect");
+                        }
+                    });
+                });
 
                 const mobileMenuBtn = document.getElementById("mobileMenuBtn"), mobileNavDrawer = document.getElementById("mobileNavDrawer"), mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
                 if(mobileMenuBtn) mobileMenuBtn.addEventListener("click", () => { mobileNavDrawer.classList.toggle("active"); mobileMenuBtn.setAttribute("aria-expanded", mobileNavDrawer.classList.contains("active")); });
@@ -1211,23 +1190,19 @@
                 const closeLightbox = () => { lightbox.classList.add("closing"); setTimeout(() => { lightbox.classList.remove("active", "closing"); lightbox.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }, 350); };
                 lightboxPrev?.addEventListener("click", prevImage); lightboxNext?.addEventListener("click", nextImage); lightboxClose?.addEventListener("click", closeLightbox); lightbox?.addEventListener("click", (e) => { if(e.target === lightbox) closeLightbox(); });
                 let touchStartX = 0; lightbox?.addEventListener("touchstart", (e) => { touchStartX = e.changedTouches[0].clientX; }); lightbox?.addEventListener("touchend", (e) => { const diff = touchStartX - e.changedTouches[0].clientX; if(Math.abs(diff) > 50) diff > 0 ? nextImage() : prevImage(); });
-                document.addEventListener("keydown", (e) => { if(lightbox.classList.contains("active")){ if(e.key === "ArrowLeft"){ e.preventDefault(); prevImage(); } else if(e.key === "ArrowRight"){ e.preventDefault(); nextImage(); } else if(e.key === "Escape") closeLightbox(); } if(enquiryModal.classList.contains("active") && e.key === "Escape") closeEnquiryModal(); });
+                document.addEventListener("keydown", (e) => { if(lightbox.classList.contains("active")){ if(e.key === "ArrowLeft"){ e.preventDefault(); prevImage(); } else if(e.key === "ArrowRight"){ e.preventDefault(); nextImage(); } else if(e.key === "Escape") closeLightbox(); } });
 
-                (async () => { if(!galleryGrid) return; const loaded = await loadAllImages(); if(loadingEl) loadingEl.remove(); if(!loaded.length){ galleryGrid.innerHTML = '<div class="text-center py-12 text-white/50 col-span-full">Add images named 1.jpeg to 8.jpeg in asset folder</div>'; return; } galleryImages = loaded; const frag = document.createDocumentFragment(); loaded.forEach((src, idx) => { const item = document.createElement("div"); item.className = "pinterest-item reveal-on-scroll"; item.setAttribute("role","button"); item.setAttribute("tabindex","0"); const img = document.createElement("img"); img.src = src; img.alt = `Portfolio ${idx+1}`; img.loading = "lazy"; img.decoding = "async"; img.style.opacity = "0"; img.onload = () => img.style.opacity = "1"; const overlay = document.createElement("div"); overlay.className = "pinterest-overlay"; const span = document.createElement("span"); span.innerText = "VIEW"; overlay.appendChild(span); item.appendChild(img); item.appendChild(overlay); item.addEventListener("click", () => openLightbox(src, idx)); item.addEventListener("keydown", (e) => { if(e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(src, idx); } }); frag.appendChild(item); }); galleryGrid.appendChild(frag); new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add("revealed"); observer.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: "30px" }).observe; const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("revealed"); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: "30px" }); document.querySelectorAll(".reveal-on-scroll").forEach(el => observer.observe(el)); })();
+                (async () => { if(!galleryGrid) return; const loaded = await loadAllImages(); if(loadingEl) loadingEl.remove(); if(!loaded.length){ galleryGrid.innerHTML = '<div class="text-center py-12 text-white/50 col-span-full">Add images named 1.jpeg to 8.jpeg in asset folder</div>'; return; } galleryImages = loaded; const frag = document.createDocumentFragment(); loaded.forEach((src, idx) => { const item = document.createElement("div"); item.className = "pinterest-item reveal-on-scroll"; item.setAttribute("role","button"); item.setAttribute("tabindex","0"); const img = document.createElement("img"); img.src = src; img.alt = `Portfolio ${idx+1}`; img.loading = "lazy"; img.decoding = "async"; img.style.opacity = "0"; img.onload = () => img.style.opacity = "1"; const overlay = document.createElement("div"); overlay.className = "pinterest-overlay"; const span = document.createElement("span"); span.innerText = "VIEW"; overlay.appendChild(span); item.appendChild(img); item.appendChild(overlay); item.addEventListener("click", () => openLightbox(src, idx)); item.addEventListener("keydown", (e) => { if(e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(src, idx); } }); frag.appendChild(item); }); galleryGrid.appendChild(frag); const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("revealed"); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: "30px" }); document.querySelectorAll(".reveal-on-scroll").forEach(el => observer.observe(el)); })();
 
-                const homePage = document.getElementById("homePage"), connectPage = document.getElementById("connectPage"), navLinks = document.querySelectorAll(".nav-link");
-                function showPage(p){ if(p === "home"){ homePage.classList.remove("hidden-page","hidden"); homePage.classList.add("visible-page"); connectPage.classList.add("hidden-page","hidden"); connectPage.classList.remove("visible-page"); } else { homePage.classList.add("hidden-page","hidden"); homePage.classList.remove("visible-page"); connectPage.classList.remove("hidden-page","hidden"); connectPage.classList.add("visible-page"); } window.scrollTo({ top: 0, behavior: "smooth" }); }
-                function updateActive(activePage){ navLinks.forEach(link => { link.classList.remove("active-nav-link","text-gold"); link.classList.add("text-white/50"); if(link.getAttribute("data-page") === activePage) link.classList.add("active-nav-link","text-gold"); }); mobileNavLinks.forEach(link => { link.classList.remove("active"); if(link.getAttribute("data-page") === activePage) link.classList.add("active"); }); }
                 navLinks.forEach(link => link.addEventListener("click", (e) => { e.preventDefault(); showPage(link.getAttribute("data-page")); updateActive(link.getAttribute("data-page")); }));
                 document.getElementById("logoHome")?.addEventListener("click", () => { showPage("home"); updateActive("home"); });
                 document.getElementById("footerLogoText")?.addEventListener("click", () => { showPage("home"); updateActive("home"); });
                 updateActive("home");
                 document.body.classList.add("loaded");
-                new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("revealed"); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: "40px" }).observe; 
+                
                 const scrollObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("revealed"); scrollObserver.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: "40px" });
                 document.querySelectorAll(".service-card, .contact-card, .team-card").forEach(el => { if(!el.classList.contains("revealed")){ el.classList.add("reveal-on-scroll"); scrollObserver.observe(el); } });
-            };
-            document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", deferredInit) : requestAnimationFrame(deferredInit);
+            })();
         </script>
     </body>
 </html>
